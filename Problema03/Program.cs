@@ -7,8 +7,8 @@ namespace Problema03
     {
         static void Main(string[] args)
         {
-            Auto Auto1 = CrearAutoFiat(2020);            
-            MostrarAuto(Auto1);            
+            Auto Auto1 = CrearAutoFiat(2020);
+            MostrarAuto(Auto1);
 
             Auto Auto2 = CrearAutoPeugeot();
             MostrarAuto(Auto2);
@@ -26,6 +26,10 @@ namespace Problema03
                     Modelo = "Fiat"
                 };
             }
+            else
+            {
+                Console.WriteLine("Se deben ingresar datos no nulos");
+            }
 
             return auto;
         }
@@ -33,7 +37,7 @@ namespace Problema03
         static Auto CrearAutoPeugeot(int? anio = null)
         {
             Auto auto = null;
-            
+
             if (anio != null)
             {
                 auto = new Auto()
@@ -42,13 +46,24 @@ namespace Problema03
                     Modelo = "Peugeot"
                 };
             }
+            else
+            {
+                Console.WriteLine("Se deben ingresar datos no nulos");
+            }
 
             return auto;
         }
 
         static void MostrarAuto(Auto auto)
         {
-            Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            try
+            {
+                Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Error: Valores Nulos");
+            }
             Console.ReadLine();
         }
     }

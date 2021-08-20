@@ -6,10 +6,17 @@ namespace Problema04
     {
         static void Main(string[] args)
         {
-            int a = 1;
-            int b = 2;
-            Console.WriteLine("{0} - {1} - {2}", a, b);
-            Console.ReadLine();
+            try
+            {
+                int a = 1;
+                int b = 2;
+                Console.WriteLine("{0} - {1} - {2}", a, b);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error de formato");
+            }
+            Console.ReadKey();
         }
     }
 }
